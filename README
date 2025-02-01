@@ -1,0 +1,18 @@
+# Creative Writing Assistant
+
+This is a project aimed at helping writers generate creative content, such as story ideas, character names, and plot twists.
+
+## Features
+
+- Generate random story ideas
+- Suggest character names
+- Provide plot twists
+
+## Installation
+
+To install the project, clone the repository and install the dependencies.
+
+```bash
+git clone https://github.com/your-username/creative-writing-assistant.git
+cd creative-writing-assistant
+pip install -r requirements.txt
