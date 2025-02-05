@@ -17,6 +17,54 @@ This project is an AI-powered creative writing assistant that generates short st
    ```bash   
    pip install -r requirements.txt
 
+Usage:
+1. Training
+   To fine tune the GPT2 model
+   ``` bash
+   python train.py
+2. Inference
+   To generate a story from a prompt:
+   ```bash
+   python inference.py --prompt "In a world where magic is real,"
+3. Deployment
+   To deploy the Flask API:
+   ```bash
+   python app.py
+   Send a POST request to http://localhost:5000/generate_story with a JSON payload:
+   ``` JSON
+   {
+      "prompt": "In a world where magic is real,"
+   }
+Example Output
+Prompt: "In a world where magic is real,"
+Generated Story:
+"In a world where magic is real, a young girl discovers a hidden portal to a realm of ancient wizards. She must learn to harness her newfound powers to save her village from an impending doom..."
+
+License
+This project is licensed under the MIT License. See LICENSE for details.
+
+### **train.py**
+This script handles the training and fine-tuning of the GPT-2 model.
+
+###  **inference.py**
+This script generates stories from user prompts.
+
+### **app.py**
+This script deploys the model as a Flask API.
+
+Notebooks
+Include Jupyter notebooks for data exploration, training, and inference demos.
+
+**data_exploration.ipynb**
+   Explore the WritingPrompts dataset.
+   Visualize prompt and story lengths.
+
+**training.ipynb**
+   Step-by-step training and fine-tuning process.
+
+**inference_demo.ipynb**
+   Demonstrate story generation with examples.
+
 Directory Structure:
 creative-writing-assistant/
 │
