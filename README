@@ -1,18 +1,34 @@
 # Creative Writing Assistant
 
-This is a project aimed at helping writers generate creative content, such as story ideas, character names, and plot twists.
+## Overview
+This project is an AI-powered creative writing assistant that generates short stories based on user-provided prompts. It uses a fine-tuned GPT-2 model trained on the WritingPrompts dataset.
 
 ## Features
-
-- Generate random story ideas
-- Suggest character names
-- Provide plot twists
+- Generate creative stories from prompts.
+- Fine-tuned GPT-2 model for better story generation.
+- Flask API for real-time story generation.
 
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/creative-writing-assistant.git
+   cd creative-writing-assistant
 
-To install the project, clone the repository and install the dependencies.
-
-```bash
-git clone https://github.com/your-username/creative-writing-assistant.git
-cd creative-writing-assistant
-pip install -r requirements.txt
+Directory Structure:
+creative-writing-assistant/
+│
+├── README.md
+├── requirements.txt
+├── train.py
+├── inference.py
+├── app.py
+├── notebooks/
+│   ├── data_exploration.ipynb
+│   ├── training.ipynb
+│   └── inference_demo.ipynb
+├── models/
+│   └── creative_writing_gpt2/
+├── data/
+│   └── sample_prompts.txt
+├── LICENSE
+└── .gitignore
