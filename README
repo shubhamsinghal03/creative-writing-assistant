@@ -52,17 +52,8 @@ This script generates stories from user prompts.
 ### **app.py**
 This script deploys the model as a Flask API.
 
-Notebooks
-Include Jupyter notebooks for data exploration, training, and inference demos.
-
-**data_exploration.ipynb**
-   Explore the WritingPrompts dataset.
-   Visualize prompt and story lengths.
-
-**training.ipynb**
+**training_inference_1.ipynb**
    Step-by-step training and fine-tuning process.
-
-**inference_demo.ipynb**
    Demonstrate story generation with examples.
 
 Directory Structure:
@@ -73,10 +64,6 @@ creative-writing-assistant/
 ├── train.py
 ├── inference.py
 ├── app.py
-├── notebooks/
-│   ├── data_exploration.ipynb
-│   ├── training.ipynb
-│   └── inference_demo.ipynb
 ├── models/
 │   └── creative_writing_gpt2/
 ├── data/
