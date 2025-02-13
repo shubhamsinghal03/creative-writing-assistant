@@ -1,4 +1,4 @@
-#This script handles the training and fine-tuning of the GPT-2 model.
+# This script handles the training and fine-tuning of the GPT-2 model.
 
 from datasets import load_dataset
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, AdamW
@@ -6,14 +6,29 @@ from torch.utils.data import DataLoader
 import torch
 
 # Load dataset and tokenizer
-dataset = load_dataset("writing_prompts")
+dataset = load_dataset("wikitext", "wikitext-2-raw-v1")
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+tokenizer.pad_token = tokenizer.eos_token
 
+# Split the dataset to use a smaller portion
+# For example, use 10% of the training data
+small_train_dataset = dataset["train"].train_test_split(test_size=0.9)["train"]
+
+# Resize tokenizer vocabulary to include all tokens in the dataset
 def tokenize_function(examples):
-    return tokenizer(examples["prompt"], truncation=True, padding="max_length", max_length=128)
+    return tokenizer(examples["text"],
+                     truncation=True,
+                     padding="max_length",
+                     max_length=128,
+                     return_tensors='pt')
 
-tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=["prompt", "story"])
-train_loader = DataLoader(tokenized_dataset["train"], batch_size=8, shuffle=True)
+# Tokenize the smaller dataset
+tokenized_dataset = small_train_dataset.map(
+    tokenize_function, batched=True,
+    remove_columns=["text"])
+
+tokenized_dataset.set_format(type="torch", columns=["input_ids", "attention_mask"])
+train_loader = DataLoader(tokenized_dataset, batch_size=8, shuffle=True)
 
 # Load model and optimizer
 model = GPT2LMHeadModel.from_pretrained("gpt2")
